@@ -1,0 +1,18 @@
+.poppins{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 12px;
+    width: 170px;
+    height: 47px;
+    border: 1px solid #121212;
+    color: #34C94B;
+    background-color: #121212;
+    letter-spacing: 0.25px;
+    text-align: center;
+    /* font-style: italic; */
+  }
+  .poppins:hover{
+    cursor: pointer;
+  }
+  
