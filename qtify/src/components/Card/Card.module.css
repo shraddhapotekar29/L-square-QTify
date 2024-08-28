@@ -1,0 +1,10 @@
+.mediaCard{
+    border-radius: 10px;
+    border: 1px solid #121212;
+    max-width:150px;
+    max-height:205px;
+}
+.cardWrapper{
+    text-align: left;
+}
+  
