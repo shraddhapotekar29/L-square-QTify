@@ -9,7 +9,11 @@ function App() {
     <div className="App">
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={ <><Navbar/> <Hero/> <Section/> <NewAlbum/></>}></Route>
+      <Route path="/" element={ <><Navbar/> 
+      <Hero/> 
+      <Section name={"Top Albums"} url={"https://qtify-backend-labs.crio.do/albums/top"}/> 
+      <Section name={"New Albums"} url={"https://qtify-backend-labs.crio.do/albums/new"}/> 
+      </>}></Route>
     </Routes>
     </BrowserRouter>
     </div>
