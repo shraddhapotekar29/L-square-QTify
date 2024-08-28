@@ -29,8 +29,8 @@ return(<>
     <div className={Styles.section}>
     <h3>{name}</h3>
     {collapseBtn?
-    <Button sx={{color:"#34C94B"}} onClick={()=>setCollapseBtn(false)}>Show All</Button>:
-    <Button sx={{color:"#34C94B"}} onClick={()=>{setCollapseBtn(true)}}>Collapse</Button>}
+    <Button sx={{color:"#34C94B", textTransform: "none",fontSize:"16px"}} onClick={()=>setCollapseBtn(false)} >Show All</Button>:
+    <Button sx={{color:"#34C94B", textTransform: "none",fontSize:"16px"}} onClick={()=>{setCollapseBtn(true)}}>Collapse</Button>}
     
     </div>
     {collapseBtn?<Carousel albumData={albumData}/>:
