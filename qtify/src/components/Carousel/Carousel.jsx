@@ -1,44 +1,42 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from "react";
+import styles from "./Carousel.module.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import LeftNavigation from '../Navigation/LeftNavigation';
-import RightNavigation from '../Navigation/RightNavigation';
-
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
-
-
-import './style.css';
-import MediaCard from '../Card/Card';
-// import { FreeMode, Pagination } from 'swiper/modules';
-
-
-import 'swiper/css/navigation';
-export default function Carousel({albumData}) {
-    const swiperRef = useRef(null);
+//import './swiper.css'; 
+import 'swiper/css/bundle';
+import PrevBtn from "./PrevBtn1";
+import MediaCard from "../Card/Card";
+import NextBtn from "./NextBtn";
+const Carousel = ({albumData}) => {
+  const swiperRef = useRef(null);
   return (
-    <><div className='carouselDiv'>
-        <div className='navigation'>
-        <LeftNavigation onClick={() => swiperRef.current?.slidePrev()}/>
-        </div>
-      <Swiper
-      pagination={false}
-      navigation={false}
-      modules={[Pagination, Navigation]}
-        slidesPerView={7}
-        spaceBetween={15}
-        onSwiper={(swiper) => { swiperRef.current = swiper; }}
-        className="mySwiper"
-      >
-        {albumData.map((album)=>(
-            <SwiperSlide><MediaCard album={album}/></SwiperSlide>
-        ))}
-      </Swiper>
-      <div className='navigation'>
-      <RightNavigation onClick={() => swiperRef.current?.slideNext()}/>
-        </div>
-      </div>
-    </>
+    <div className={styles.swiperDiv}>
+ <PrevBtn swiperRef={swiperRef} />
+    <Swiper
+      spaceBetween={20}
+      slidesPerView={2}
+      breakpoints={{
+        601: {
+          slidesPerView: 2,
+        },
+        768:{
+          slidesPerView:4,
+        },
+        1008:{
+          slidesPerView:7,
+        }
+      }}
+      onSwiper={(swiper) => {
+        swiperRef.current = swiper;
+      }}
+    >
+      {albumData.map((album)=>{
+          return<SwiperSlide><MediaCard album={album}/></SwiperSlide>
+      })}
+      
+    </Swiper>
+    <NextBtn swiperRef={swiperRef} />
+    </div>
   );
-}
+};
+
+export default Carousel;
