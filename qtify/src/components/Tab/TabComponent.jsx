@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import axios from 'axios';
 import Carousel from '../Carousel/Carousel';
 import styles from "./TabComponent.module.css";
-
 const TabComponent=()=>{
     const[value,setValue]=useState(0);
     const[genres,setGenres]=useState([]);
@@ -74,7 +73,13 @@ const TabComponent=()=>{
 return(<> 
 <Box sx={{ width: '100%' }}>
     <Box sx={{marginLeft:"5rem" }}>
-      <Tabs value={value} onChange={handleChange} >
+      <Tabs value={value} onChange={handleChange} 
+      textColor="#ffffff"
+      sx={{
+        '& .MuiTabs-indicator': {
+            backgroundColor: '#34C94B', // Custom indicator color
+        }
+      }}>
         <Tab label="All"  sx={{ textTransform: 'none',fontSize:'16',fontWeight:'600' }} />
         {genres?.map((genre) => (
        <Tab key={genre.key} label={genre.label} sx={{ textTransform: 'none',fontSize:'16',fontWeight:'600' }}/>
@@ -88,7 +93,9 @@ return(<>
      <TabPanel value={value} index={3}><Carousel albumData={filteredSongs} song={true}/></TabPanel>
      <TabPanel value={value} index={4}><Carousel albumData={filteredSongs} song={true}/></TabPanel>
    
-  </Box></>)
+  </Box>
+ 
+  </>)
 }
 const TabPanel=(props)=>{
     const {children,value,index}=props;
