@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import styles from "./Carousel.module.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
-//import './swiper.css'; 
 import 'swiper/css/bundle';
 import PrevBtn from "./PrevBtn1";
 import MediaCard from "../Card/Card";
 import NextBtn from "./NextBtn";
-const Carousel = ({albumData}) => {
+
+const Carousel = ({albumData,song}) => {
   const swiperRef = useRef(null);
   return (
     <div className={styles.swiperDiv}>
@@ -30,7 +30,7 @@ const Carousel = ({albumData}) => {
       }}
     >
       {albumData.map((album)=>{
-          return<SwiperSlide><MediaCard album={album}/></SwiperSlide>
+          return<SwiperSlide key={album.id}><MediaCard album={album} song={song}/></SwiperSlide>
       })}
       
     </Swiper>

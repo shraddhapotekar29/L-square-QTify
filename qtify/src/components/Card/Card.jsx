@@ -7,7 +7,8 @@ import styles from "./Card.module.css";
 import { Typography } from '@mui/material';
 
 
-const MediaCard=({album})=> {
+
+const MediaCard=({album,song})=> {
   return (
     <div className={styles.cardWrapper}>
     <Card className={styles.mediaCard}>
@@ -22,7 +23,8 @@ const MediaCard=({album})=> {
           alignItems: 'center',
           
         }}>
-      <Chip label={`${album.follows} follows`} sx={{ backgroundColor: '#121212', color: '#FFFFFF',height:'23px',position:'absolute',marginRight:'3rem' }}  />
+          {song?<Chip label={`${album.likes} likes`} sx={{ backgroundColor: '#121212', color: '#FFFFFF',height:'23px',position:'absolute',marginRight:'3rem' }}  />:
+      <Chip label={`${album.follows} follows`} sx={{ backgroundColor: '#121212', color: '#FFFFFF',height:'23px',position:'absolute',marginRight:'3rem' }}  />}
       </CardContent>
     </Card>
     <div><Typography>{album.title}</Typography></div>
